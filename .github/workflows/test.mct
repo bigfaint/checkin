@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+<!-- Saved on 2020Äê ÎåÔÂ 26ÈÕ ÐÇÆÚ¶þ, ÏÂÎç 2:36 -->
+<!-- MuClient version 4.94 -->
+<!-- Written by Nick Gammon -->
+<!-- Home Page: http://www.mushclient.com/ -->
+<muclient>
+
+<!-- triggers -->
+
+<triggers
+   muclient_version="4.94"
+   world_file_version="15"
+   date_saved="2020-05-26 14:36:07"
+  >
+  <trigger
+   enabled="y"
+   match="(.+)ËÀÁË"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>print("%1")
+if "%1"=="Äã" then
+DoAfter(12,"ctask")
+elseif "%1"==GetVariable("gname") then
+Execute("ctask")
+end</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="fight"
+   match=".+´óºÈÒ»Éù¡°µ¶Ç¹²»Èç£¡¡±Æ¤·ô±äµÃÈç¸ÖÌú°ã½áÊ¶£¬ÄãµÄ¹¥»÷Á¢¿Ì±»·´µ¯»ØÈ¥£¡"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>DoAfter(0.1,"eat yun dan")
+DoAfter(1,"eat yun dan")
+DoAfter(2,"eat yun dan")
+DoAfter(3,"eat yun dan")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match=".+½«ÄãÇáÀ¹£ºÎÒ·ð×æÔÝ²»´ý¿ÍÒ²¡£"
+   regexp="y"
+   sequence="100"
+  >
+  <send>ask zunzhe about È¡¾­</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match=".+ËµµÀ£º¹þ¹þ£¬ÄãÊäÁË£¬ÎÒÌìÏÂÎÞµÐ¡£"
+   regexp="y"
+   send_to="10"
+   sequence="100"
+  >
+  <send>kx</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match=".+ËµµÀ£ºÎÒÒ»Ê±´óÒâ£¬Ò²Ã»¾¡È«Á¦£¬ÎÒ²»·þ£¬ÔÙ±ÈÒ»´Î¡£|.+ËµµÀ£ºÎÒ»¹Ã»×¼±¸ºÃ£¬Äã¾Í¿ª´òÁË£¬²»ËãÊý¡£"
+   regexp="y"
+   send_to="10"
+   sequence="100"
+  >
+  <send>kxx</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="\s+¡¸ÈçÀ´ºÅ,ÎÒºÞËÀÄãÁË¡¹\S+\(Rulai yao guai\)"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>SetVariable('findguai',1)
+DoAfterSpecial("0.5","dd",10)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="¼¸¸ö½ð¸Õ°Ñ(.+)ÑºÁËÏÂÈ¥¡£"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>if "%1"==GetVariable("gname") then
+Execute("w;n;zuochan")
+end</send>
+  </trigger>
+  <trigger
+   match="½ÅÏÂÒ»¸ö²»ÎÈ£¬µøÔÚµØÉÏÒ»¶¯Ò²²»¶¯ÁË¡£"
+   name="qin"
+   regexp="y"
+   send_to="10"
+   sequence="100"
+  >
+  <send>touxiang;get rulai yao guai</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="fight"
+   match="½Ù·ËË«ÊÖ»Î¶¯£¬·ç»ØÑ©Îè½£ÉÁ¶¯²»Ö¹£¬Í»È»¼Üµ½ÄãµÄÉíÉÏ£¬¶ø½Ù·ËµÄ¾¢Á¦Ò²ÔÚ²»¾­ÒâÖÐ´«µ½ÄãÌåÄÚ¡£"
+   regexp="y"
+   send_to="10"
+   sequence="100"
+  >
+  <send>eat yun dan</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="fight"
+   match="½á¹ûÄãµÖÊÜ²»×¡²¨Ê¿¶ÙµÄÒ»Ç§ÖÖ¾¢ÆøÔÚÌåÄÚÀ´»ØµÄ×²»÷¡£"
+   regexp="y"
+   sequence="100"
+  >
+  <send>eat yun dan</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="fight"
+   match="½á¹ûÄãÊÖ×ã½©Ó²£¬¹ûÈ»¶¯µ¯²»µÃ£¡"
+   regexp="y"
+   sequence="100"
+  >
+  <send>exert jiefeng</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="fight"
+   match="Äã±»\[ÈË¼äÁ¶Óü\]»÷ÖÐ,¶ÙÊ±ÑªÁ÷Èç×¢£¬Çê¿ÌÈ¾ºìÁËÈ«Éí£¡|Äã±».+µÄÒøÃ¢´ÌµÃ±éÌåÁÛÉË£¡"
+   name="soul"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>Execute("eat yun dan")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="fight"
+   match="ÄãµÄÉñÄ§ÐÄ·¨ÔËÐÐÒ»ÖÜÌìÍê±Ï£¬Éñ¼×½¥½¥ÏûÈ¥ÁË¡£"
+   regexp="y"
+   sequence="100"
+  >
+  <send>exert shenjia</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="fight"
+   match="Äã¸Ð¾õÉíÌåÒ»µãµãÐéÈõÏÂÈ¥£¡"
+   regexp="y"
+   sequence="100"
+  >
+  <send>exert anti</send>
+  </trigger>
+  <trigger
+   match="Äã¸Õ¸ÕÍê³ÉÁËÒ»¸öÄÑ¶È\S+µÄÉ±ÑýÈÎÎñ¡£|ÄãÈÎÎñÊ§°ÜÁË¡£|.+ËµµÀ£ºÎÒÏÖÔÚ·½ÖªÌìÍâÓÐÌì£¬ÈËÍâÓÐÈË£¬ÎÒ»¹Òª»ØÉ½¶à¶àÐÞÁ¶£¬¸æ´ÇÁË¡£"
+   name="zc"
+   regexp="y"
+   send_to="10"
+   sequence="100"
+  >
+  <send>gorl;w;n;zuochan;gt zc</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="Äã½«.+·öÁËÆðÀ´±³ÔÚ±³ÉÏ¡£"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>Execute("gorl;drop yao guai")
+EnableTrigger("qin",0)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="fight"
+   match="ÄãÆøÏ¢´ÖÖØ£¬¶¯×÷¿ªÊ¼É¢ÂÒ£¬¿´À´ËùÊÜµÄÉË×ÅÊµ²»Çá¡£|ÄãÒÑ¾­ÉËºÛÀÛÀÛ£¬ÕýÔÚÃãÁ¦Ö§³Å×Å²»µ¹ÏÂÈ¥¡£"
+   regexp="y"
+   send_to="10"
+   sequence="100"
+  >
+  <send>#3 (eat yao);er</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="fight"
+   match="ÄãÉËÖØÖ®ÏÂÒÑ¾­ÄÑÒÔÖ§³Å£¬ÑÛ¿´¾ÍÒªµ¹ÔÚµØÉÏ¡£|ÄãÊÜÉË¹ýÖØ£¬ÒÑ¾­ÑÙÑÙÒ»Ï¢£¬ÃüÔÚµ©Ï¦ÁË¡£|ÄãÊÜÉË¹ýÖØ£¬ÒÑ¾­ÓÐÈç·çÖÐ²ÐÖò£¬ËæÊ±¶¼¿ÉÄÜ¶ÏÆø¡£|ÄãÒ¡Í·»ÎÄÔ¡¢ÍáÍáÐ±Ð±µØÕ¾¶¼Õ¾²»ÎÈ£¬ÑÛ¿´¾ÍÒªµ¹ÔÚµØÉÏ¡£|ÄãÒÑ¾­ÏÝÈë°ë»èÃÔ×´Ì¬£¬ËæÊ±¶¼¿ÉÄÜË¤µ¹ÔÎÈ¥¡£"
+   name="scyd"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>local l
+EnableTrigger("scyd",0)
+DoAfterSpecial(0.5,'EnableTrigger("scyd",1)',12)
+Execute("#5 (eat yao);er")
+wait.make(function()
+    l=wait.regexp("ÄãÉÏÒ»¸ö¶¯×÷»¹Ã»ÓÐÍê³É£¬²»ÄÜÊ©ÓÃÄÚ¹¦¡£|ÄãµÄÄÚÁ¦²»¹»",1)
+    if l~=nil then
+        Send("eat yun dan")
+        Execute("jiali max;enchant max")
+    end
+end);</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="ÄãËµµÀ£ºµ½µØÍ·À²£¡"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>DoAfterSpecial(1,"zg",10)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="ÄãËµµÀ£ºÕâ¸öÈÎÎñµÜ×Ó¿ÖÅÂÎÞÄÜÎªÁ¦¡£"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>DoAfterSpecial(15,"w;n;zuochan")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="fight"
+   match="ÄãËÆºõ·Ç³£Æ£±¹£¬¿´À´ÐèÒªºÃºÃÐÝÏ¢ÁË¡£|ÄãÒÑ¾­Ò»¸±Í·ÖØ½ÅÇáµÄÄ£Ñù£¬ÕýÔÚÃãÁ¦Ö§³Å×Å²»µ¹ÏÂÈ¥¡£|Äã¿´ÆðÀ´ÒÑ¾­Á¦²»´ÓÐÄ,ÂíÉÏÒªÖ§³Ö²»×¡ÁË¡£"
+   regexp="y"
+   send_to="10"
+   sequence="100"
+  >
+  <send>#2 (eat yao);er</send>
+  </trigger>
+  <trigger
+   match="ÄãÏÖÔÚµÄÈÎÎñÊÇ(\S+)Ñý,(\S+)ÔÚ(\S+)¡£"
+   name="check"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>SetVariable("gplace","%3")
+SetVariable("gname","%2")
+SetVariable("type","%1")
+EnableTrigger("zc",1)
+Execute("cszg")
+EnableTrigger("check",0)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="rulai"
+   match="ÄãÖ»¾õÁéÌ¨Ò»Æ¬ÇåÃ÷£¬ËÆºõìøÒâÒÑ¾¡¡£"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>Execute("s;e;task;ctask")
+EnableTrigger("check",1)</send>
+  </trigger>
+</triggers>
+</muclient>
